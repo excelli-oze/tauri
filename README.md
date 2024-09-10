@@ -1,0 +1,8 @@
+- Android code is in `src-tauri/gen/android`
+- Setup
+    - Install `nodejs`
+    - install packages using `npm install`
+    - Setup system build tools
+        - https://v2.tauri.app/start/prerequisites/
+- Build
+    - `npm run tauri android build`
