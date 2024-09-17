@@ -1,0 +1,21 @@
+[package]
+name = "tauri-plugin-datapass"
+version = "0.1.0"
+authors = [ "You" ]
+description = "A plugin to pass data between Tauri and native code"
+edition = "2021"
+rust-version = "1.71"
+exclude = ["/examples", "/webview-dist", "/webview-src", "/node_modules"]
+links = "tauri-plugin-datapass"
+
+[lib]
+name = "tauri_plugin_datapass"  
+crate-type = ["staticlib", "cdylib", "rlib"]  # Changed "lib" to "rlib"
+
+[dependencies]
+tauri = { version = "2.0.0-rc.14" }
+serde = { version = "1.0", features = ["derive"] }
+thiserror = "1.0"
+
+[build-dependencies]
+tauri-build = { version = "2.0.0-rc.9", default-features = false }

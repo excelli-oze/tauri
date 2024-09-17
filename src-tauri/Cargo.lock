@@ -64,9 +64,9 @@ dependencies = [
 
 [[package]]
 name = "anyhow"
-version = "1.0.87"
+version = "1.0.89"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "10f00e1f6e58a40e807377c75c6a7f97bf9044fab57816f2414e6f5f4499d7b8"
+checksum = "86fdf8605db99b54d3cd748a44c6d04df638eb5dafb219b135d0149bd0db01f6"
 
 [[package]]
 name = "atk"
@@ -280,9 +280,9 @@ dependencies = [
 
 [[package]]
 name = "cc"
-version = "1.1.18"
+version = "1.1.19"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b62ac837cdb5cb22e10a256099b4fc502b1dfe560cb282963a974d7abd80e476"
+checksum = "2d74707dde2ba56f86ae90effb3b43ddd369504387e718014de010cec7959800"
 dependencies = [
  "shlex",
 ]
@@ -1304,9 +1304,9 @@ dependencies = [
 
 [[package]]
 name = "iana-time-zone"
-version = "0.1.60"
+version = "0.1.61"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e7ffbb5a1b541ea2561f8c41c087286cc091e21e556a4f09a8f6cbf17b69b141"
+checksum = "235e081f3925a06703c2d0117ea8b91f042756fd6e7a6e5d901e8ca1a996b220"
 dependencies = [
  "android_system_properties",
  "core-foundation-sys",
@@ -2439,9 +2439,9 @@ checksum = "20675572f6f24e9e76ef639bc5552774ed45f1c30e2951e1e99c59888861c539"
 
 [[package]]
 name = "redox_syscall"
-version = "0.5.3"
+version = "0.5.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2a908a6e00f1fdd0dfd9c0eb08ce85126f6d8bbda50017e74bc4a4b7d4a926a4"
+checksum = "0884ad60e090bf1345b93da0a5de8923c93884cd03f40dfcfddd3b4bee661853"
 dependencies = [
  "bitflags 2.6.0",
 ]
@@ -3070,13 +3070,12 @@ checksum = "61c41af27dd6d1e27b1b16b489db798443478cef1f06a660c96db617ba5de3b1"
 
 [[package]]
 name = "tauri"
-version = "2.0.0-rc.10"
+version = "2.0.0-rc.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a6327f79726c508efbbc3826b343fd7d39ebce786bdeff5881077b35d335d9e0"
+checksum = "2fa32e2741bda64c1da02d93252a466893180052fc6de61c8803b0356504b70d"
 dependencies = [
  "anyhow",
  "bytes",
- "cocoa",
  "dirs",
  "dunce",
  "embed_plist",
@@ -3091,8 +3090,11 @@ dependencies = [
  "log",
  "mime",
  "muda",
- "objc",
+ "objc2",
+ "objc2-app-kit",
+ "objc2-foundation",
  "percent-encoding",
+ "plist",
  "raw-window-handle",
  "reqwest",
  "serde",
@@ -3125,14 +3127,15 @@ dependencies = [
  "serde_json",
  "tauri",
  "tauri-build",
+ "tauri-plugin-datapass",
  "tauri-plugin-shell",
 ]
 
 [[package]]
 name = "tauri-build"
-version = "2.0.0-rc.9"
+version = "2.0.0-rc.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7938a610d1474435fa38dfba66c95ce9be7f17b500672b6e00072bca5e52fef3"
+checksum = "148441d64674b2885c1ba5baf3ae61662bb8753859ffcfb541962cbc6b847f39"
 dependencies = [
  "anyhow",
  "cargo_toml",
@@ -3152,9 +3155,9 @@ dependencies = [
 
 [[package]]
 name = "tauri-codegen"
-version = "2.0.0-rc.9"
+version = "2.0.0-rc.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "467d3e95b57c860bea13b7c812820d9e7425e4b700e5e69b358d906f22022007"
+checksum = "72a15c3f9282c82871c69ddb65d02ae552738bbac848c8adcab521bf14d8b9e6"
 dependencies = [
  "base64 0.22.1",
  "brotli",
@@ -3179,9 +3182,9 @@ dependencies = [
 
 [[package]]
 name = "tauri-macros"
-version = "2.0.0-rc.8"
+version = "2.0.0-rc.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c4585a906bd96bf57d063c3d60c52577ccc5de592d08f9d112e873ada79af9b9"
+checksum = "f12d1aa317bec56f78388cf6012d788876d838595a48f95cbd7835642db356a0"
 dependencies = [
  "heck 0.5.0",
  "proc-macro2",
@@ -3193,9 +3196,9 @@ dependencies = [
 
 [[package]]
 name = "tauri-plugin"
-version = "2.0.0-rc.9"
+version = "2.0.0-rc.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b905ecef194245bb35baba0447703f9fe40e4c03e946c7aba54c21c23e3452c7"
+checksum = "d82a2adea16b8a71b7a5ad23f720bb13f8d2830b820cc1c266512314ba99bf67"
 dependencies = [
  "anyhow",
  "glob",
@@ -3206,6 +3209,16 @@ dependencies = [
  "tauri-utils",
  "toml 0.8.2",
  "walkdir",
+]
+
+[[package]]
+name = "tauri-plugin-datapass"
+version = "0.1.0"
+dependencies = [
+ "serde",
+ "tauri",
+ "tauri-build",
+ "thiserror",
 ]
 
 [[package]]
@@ -3231,9 +3244,9 @@ dependencies = [
 
 [[package]]
 name = "tauri-runtime"
-version = "2.0.0-rc.9"
+version = "2.0.0-rc.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b72cd110a6699ef44963504d4fa4f6c535677bb0177da2d178f4f822a53058ed"
+checksum = "389f78c8e8e6eff3897d8d9581087943b5976ea96a0ab5036be691f28c2b0df0"
 dependencies = [
  "dpi",
  "gtk",
@@ -3250,15 +3263,17 @@ dependencies = [
 
 [[package]]
 name = "tauri-runtime-wry"
-version = "2.0.0-rc.9"
+version = "2.0.0-rc.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1eb325cca17496ccbb469e7e2fef7f3e31a1005ab0c658dc3331c7781a573401"
+checksum = "e17625b7cf63958d53945e199391d11c9f195fb3d1cb8aeb64dc3084d0091b92"
 dependencies = [
- "cocoa",
  "gtk",
  "http",
  "jni",
  "log",
+ "objc2",
+ "objc2-app-kit",
+ "objc2-foundation",
  "percent-encoding",
  "raw-window-handle",
  "softbuffer",
@@ -3274,9 +3289,9 @@ dependencies = [
 
 [[package]]
 name = "tauri-utils"
-version = "2.0.0-rc.9"
+version = "2.0.0-rc.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6746b87c4755f493b94920622e245aef2d771f001ddeffc203e315872d323e1c"
+checksum = "3019641087c9039b57ebfca95fa42a93c07056845b7d8d57c8966061bcee83b4"
 dependencies = [
  "brotli",
  "cargo_metadata",
@@ -3673,9 +3688,9 @@ checksum = "08f95100a766bf4f8f28f90d77e0a5461bbdb219042e7679bebe79004fed8d75"
 
 [[package]]
 name = "unicode-ident"
-version = "1.0.12"
+version = "1.0.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3354b9ac3fae1ff6755cb6db53683adb661634f67557942dea4facebec0fee4b"
+checksum = "e91b56cd4cadaeb79bbf1a5645f6b4f8dc5bde8834ad5894a8db35fda9efa1fe"
 
 [[package]]
 name = "unicode-normalization"
@@ -3688,9 +3703,9 @@ dependencies = [
 
 [[package]]
 name = "unicode-segmentation"
-version = "1.11.0"
+version = "1.12.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d4c87d22b6e3f4a18d4d40ef354e97c90fcb14dd91d7dc0aa9d8a1172ebf7202"
+checksum = "f6ccf251212114b54433ec949fd6a7841275f9ada20dddd2f29e9ceea4501493"
 
 [[package]]
 name = "url"

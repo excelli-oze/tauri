@@ -3,10 +3,30 @@
 
   let name = "";
   let greetMsg = "";
+  let dataToSet = "";
+  let retrievedData = "";
 
   async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
     greetMsg = await invoke("greet", { name });
+  }
+
+  async function setData() {
+    try {
+      await invoke("plugin:datapass|set_data", { data: dataToSet });
+      alert("Data set successfully!");
+    } catch (error) {
+      console.error("Error setting data:", error);
+      alert("Failed to set data. Check console for details.");
+    }
+  }
+
+  async function getData() {
+    try {
+      retrievedData = await invoke("plugin:datapass|get_data");
+    } catch (error) {
+      console.error("Error getting data:", error);
+      alert("Failed to get data. Check console for details.");
+    }
   }
 </script>
 
@@ -26,13 +46,26 @@
   </div>
 
   <p>Click on the Tauri, Vite, and SvelteKit logos to learn more.</p>
-
   <form class="row" on:submit|preventDefault={greet}>
     <input id="greet-input" placeholder="Enter a name..." bind:value={name} />
     <button type="submit">Greet</button>
   </form>
 
   <p>{greetMsg}</p>
+
+  <h2>Test Datapass Plugin</h2>
+  <div class="row">
+    <input placeholder="Enter data to set..." bind:value={dataToSet} />
+    <button on:click={setData}>Set Data</button>
+  </div>
+
+  <div class="row">
+    <button on:click={getData}>Get Data</button>
+  </div>
+
+  {#if retrievedData}
+    <p>Retrieved Data: {retrievedData}</p>
+  {/if}
 </div>
 
 <style>
