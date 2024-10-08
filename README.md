@@ -1,7 +1,4 @@
-# Tauri + SvelteKit
+# Readme
 
-This template should help get you started developing with Tauri and SvelteKit in Vite.
-
-## Recommended IDE Setup
-
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer).
+- Development environment doesn't work in our selected browser, but the browser popped up when run `npm run tauri dev`
+- To open `inspector` in android and ios, https://v2.tauri.app/develop/#opening-the-web-inspector-1 
