@@ -28,12 +28,42 @@
       console.log("barcode scanner only available in android and ios");
     }
   }
+
+  //location
+  import {
+    checkPermissions,
+    requestPermissions,
+    getCurrentPosition,
+    watchPosition,
+  } from "@tauri-apps/plugin-geolocation";
+
+  async function clickLocation() {
+    let permissions = await checkPermissions();
+    if (
+      permissions.location === "prompt" ||
+      permissions.location === "prompt-with-rationale"
+    ) {
+      permissions = await requestPermissions(["location"]);
+    }
+
+    if (permissions.location === "granted") {
+      const pos = await getCurrentPosition();
+
+      await watchPosition(
+        { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 },
+        (pos) => {
+          console.log(pos);
+        }
+      );
+    }
+  }
 </script>
 
 <div class="container">
   <h1>Welcome to Tauri!</h1>
   <button on:click={click}>os</button>
   <button on:click={clickBarcode}>barcode</button>
+  <button on:click={clickLocation}>location</button>
 
   <form class="row" on:submit|preventDefault={greet}>
     <input id="greet-input" placeholder="Enter a name..." bind:value={name} />
