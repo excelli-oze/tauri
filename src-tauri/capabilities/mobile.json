@@ -1,14 +1,20 @@
 {
   "$schema": "../gen/schemas/mobile-schema.json",
   "identifier": "mobile-capability",
-  "windows": ["main"],
-  "platforms": ["iOS", "android"],
+  "windows": [
+    "main"
+  ],
+  "platforms": [
+    "iOS",
+    "android"
+  ],
   "permissions": [
     "barcode-scanner:allow-scan",
     "barcode-scanner:allow-cancel",
     "geolocation:allow-check-permissions",
     "geolocation:allow-request-permissions",
     "geolocation:allow-get-current-position",
-    "geolocation:allow-watch-position"
+    "geolocation:allow-watch-position",
+    "notification:default"
   ]
 }

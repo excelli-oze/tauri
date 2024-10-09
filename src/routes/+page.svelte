@@ -57,6 +57,25 @@
       );
     }
   }
+
+  import {
+    isPermissionGranted,
+    requestPermission,
+    sendNotification,
+  } from "@tauri-apps/plugin-notification";
+
+  async function clickNotification() {
+    let permissionGranted = await isPermissionGranted();
+
+    if (!permissionGranted) {
+      const permission = await requestPermission();
+      permissionGranted = permission === "granted";
+    }
+
+    if (permissionGranted) {
+      sendNotification({ title: "Test Notification", body: "Notification body!" });
+    }
+  }
 </script>
 
 <div class="container">
@@ -64,6 +83,7 @@
   <button on:click={click}>os</button>
   <button on:click={clickBarcode}>barcode</button>
   <button on:click={clickLocation}>location</button>
+  <button on:click={clickNotification}>Notification</button>
 
   <form class="row" on:submit|preventDefault={greet}>
     <input id="greet-input" placeholder="Enter a name..." bind:value={name} />
