@@ -8,4 +8,4 @@
 ## Plugin Development
 - Run `cargo build` to build and then add to dependency path to `cargo.toml` in `src-tauri`
 - Run `npm install` and then `npm run build` to build javascript api wrapper in `dist-js` folder and install in main project using `npm install ./path/to/pluginfolder/`
-- 
+- Register custom plugin or even first party plugins in `lib.r` before usage.

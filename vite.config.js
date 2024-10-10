@@ -28,5 +28,11 @@ export default defineConfig(async () => ({
       // 3. tell vite to ignore watching `src-tauri`
       ignored: ["**/src-tauri/**"],
     },
+    fs: {
+      allow: [
+        "/home/zero/Code/tauri 07102024/tauri-app",
+        "/home/zero/Code/tauri 07102024/tauri-app/tauri-plugin-datapass/dist-js",
+      ],
+    },
   },
 }));

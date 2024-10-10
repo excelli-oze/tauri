@@ -73,7 +73,22 @@
     }
 
     if (permissionGranted) {
-      sendNotification({ title: "Test Notification", body: "Notification body!" });
+      sendNotification({
+        title: "Test Notification",
+        body: "Notification body!",
+      });
+    }
+  }
+
+  //datapass
+  import { ping } from "tauri-plugin-datapass-api";
+
+  async function clickDataPass() {
+    try {
+      const result = await ping("Hello, Tauri!");
+      console.log("Ping result:", result);
+    } catch (error) {
+      console.error("Error calling ping:", error);
     }
   }
 </script>
@@ -84,6 +99,7 @@
   <button on:click={clickBarcode}>barcode</button>
   <button on:click={clickLocation}>location</button>
   <button on:click={clickNotification}>Notification</button>
+  <button on:click={clickDataPass}>Datapass</button>
 
   <form class="row" on:submit|preventDefault={greet}>
     <input id="greet-input" placeholder="Enter a name..." bind:value={name} />
