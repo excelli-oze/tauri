@@ -8,16 +8,8 @@ export async function ping(value: string): Promise<string | null> {
   }).then((r) => (r.value ? r.value : null));
 }
 
-export async function sendDataToAndroid(
-  message: string,
-  number: number
-): Promise<{ success: boolean; message: string }> {
-  return await invoke("plugin:datapass|sendDataToAndroid", {
-    payload: {
-      message,
-      number,
-    },
-  });
+export async function sendDataToAndroid(text: string): Promise<string> {
+  return await invoke("plugin:datapass|sendDataToAndroid", { text });
 }
 
 export async function getDataFromAndroid(): Promise<{ data: string }> {

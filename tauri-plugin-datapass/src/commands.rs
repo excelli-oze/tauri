@@ -1,7 +1,7 @@
-use tauri::{AppHandle, command, Runtime};
 use crate::models::*;
-use crate::Result;
 use crate::DatapassExt;
+use crate::Result;
+use tauri::{command, AppHandle, Runtime};
 
 #[command]
 pub(crate) async fn ping<R: Runtime>(
@@ -13,10 +13,10 @@ pub(crate) async fn ping<R: Runtime>(
 
 #[command]
 pub(crate) async fn send_data_to_android<R: Runtime>(
-    app: AppHandle<R>,
-    payload: SendDataRequest,
-) -> Result<SendDataResponse> {
-    app.datapass().send_data_to_android(payload)
+    app_handle: tauri::AppHandle<R>,
+    text: String,
+) -> Result<String> {
+    app_handle.datapass().send_data_to_android(text)
 }
 
 #[command]

@@ -99,11 +99,7 @@
   // Function to send data to Android
   async function sendData() {
     try {
-      const dataToSend = { message: "Hello from Web to Android", number: 42 };
-      const sendResult = await sendDataToAndroid(
-        dataToSend.message,
-        dataToSend.number
-      );
+      const sendResult = await sendDataToAndroid("Hello from Web to Android");
       console.log("Send result:", sendResult);
     } catch (error) {
       console.error("Error sending data to Android:", error);

@@ -14,12 +14,6 @@ class PingArgs {
     var value: String? = null
 }
 
-@InvokeArg
-class SendDataArgs {
-    var message: String? = null
-    var number: Int? = null
-}
-
 @TauriPlugin
 class ExamplePlugin(private val activity: Activity) : Plugin(activity) {
     private val implementation = Example()
@@ -35,17 +29,13 @@ class ExamplePlugin(private val activity: Activity) : Plugin(activity) {
 
     @Command
     fun sendDataToAndroid(invoke: Invoke) {
-        val args = invoke.parseArgs(SendDataArgs::class.java)
+        val args = invoke.parseArgs(PingArgs::class.java)
+        val message = args.value ?: "No message received"
 
-        val message = args.message ?: "No message provided"
-        val number = args.number ?: 0
-
-
-        val result = "Received message from web to android and passed back to web: '$message' and number: $number"
+        Log.d("ExamplePlugin", "Received message from JavaScript: $message")
 
         val ret = JSObject()
-        ret.put("success", true)
-        ret.put("message", result)
+        ret.put("message", "Message received successfully")
         invoke.resolve(ret)
     }
 

@@ -29,12 +29,9 @@ impl<R: Runtime> Datapass<R> {
             .map_err(Into::into)
     }
 
-    pub fn send_data_to_android(
-        &self,
-        payload: SendDataRequest,
-    ) -> crate::Result<SendDataResponse> {
+    pub fn send_data_to_android(&self, text: String) -> crate::Result<String> {
         self.0
-            .run_mobile_plugin("sendDataToAndroid", payload)
+            .run_mobile_plugin("sendDataToAndroid", text)
             .map_err(Into::into)
     }
 

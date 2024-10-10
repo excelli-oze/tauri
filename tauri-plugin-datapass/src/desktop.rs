@@ -20,12 +20,9 @@ impl<R: Runtime> Datapass<R> {
         })
     }
 
-    pub fn send_data_to_android(&self, _payload: SendDataRequest) -> crate::Result<SendDataResponse> {
+    pub fn send_data_to_android(&self, _text: String) -> crate::Result<String> {
         // Indicate that desktop is not supported
-        Ok(SendDataResponse {
-            success: false,
-            message: "Desktop is not supported. Please use mobile.".to_string(),
-        })
+        Ok("Desktop is not supported. Please use mobile.".to_string())
     }
 
     pub fn get_data_from_android(&self) -> crate::Result<GetDataResponse> {
