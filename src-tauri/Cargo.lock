@@ -3492,6 +3492,7 @@ dependencies = [
  "tauri",
  "tauri-build",
  "tauri-plugin-barcode-scanner",
+ "tauri-plugin-datapass",
  "tauri-plugin-geolocation",
  "tauri-plugin-notification",
  "tauri-plugin-os",
@@ -3587,6 +3588,16 @@ dependencies = [
  "log",
  "serde",
  "serde_json",
+ "tauri",
+ "tauri-plugin",
+ "thiserror",
+]
+
+[[package]]
+name = "tauri-plugin-datapass"
+version = "0.1.0"
+dependencies = [
+ "serde",
  "tauri",
  "tauri-plugin",
  "thiserror",

@@ -18,7 +18,8 @@
     "@tauri-apps/plugin-geolocation": "^2.0.0",
     "@tauri-apps/plugin-notification": "^2.0.0",
     "@tauri-apps/plugin-os": "^2.0.0",
-    "@tauri-apps/plugin-shell": ">=2.0.0"
+    "@tauri-apps/plugin-shell": ">=2.0.0",
+    "tauri-plugin-datapass-api": "file:tauri-plugin-datapass"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.1",
