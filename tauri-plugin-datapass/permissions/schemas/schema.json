@@ -295,6 +295,16 @@
       "type": "string",
       "oneOf": [
         {
+          "description": "Enables the getDataFromAndroid command without any pre-configured scope.",
+          "type": "string",
+          "const": "allow-getDataFromAndroid"
+        },
+        {
+          "description": "Denies the getDataFromAndroid command without any pre-configured scope.",
+          "type": "string",
+          "const": "deny-getDataFromAndroid"
+        },
+        {
           "description": "Enables the ping command without any pre-configured scope.",
           "type": "string",
           "const": "allow-ping"
@@ -303,6 +313,16 @@
           "description": "Denies the ping command without any pre-configured scope.",
           "type": "string",
           "const": "deny-ping"
+        },
+        {
+          "description": "Enables the sendDataToAndroid command without any pre-configured scope.",
+          "type": "string",
+          "const": "allow-sendDataToAndroid"
+        },
+        {
+          "description": "Denies the sendDataToAndroid command without any pre-configured scope.",
+          "type": "string",
+          "const": "deny-sendDataToAndroid"
         },
         {
           "description": "Default permissions for the plugin",

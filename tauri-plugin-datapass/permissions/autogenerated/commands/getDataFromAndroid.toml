@@ -1,0 +1,13 @@
+# Automatically generated - DO NOT EDIT!
+
+"$schema" = "../../schemas/schema.json"
+
+[[permission]]
+identifier = "allow-getDataFromAndroid"
+description = "Enables the getDataFromAndroid command without any pre-configured scope."
+commands.allow = ["getDataFromAndroid"]
+
+[[permission]]
+identifier = "deny-getDataFromAndroid"
+description = "Denies the getDataFromAndroid command without any pre-configured scope."
+commands.deny = ["getDataFromAndroid"]

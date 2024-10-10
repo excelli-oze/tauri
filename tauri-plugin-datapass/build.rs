@@ -1,4 +1,4 @@
-const COMMANDS: &[&str] = &["ping"];
+const COMMANDS: &[&str] = &["ping", "getDataFromAndroid", "sendDataToAndroid"];
 
 fn main() {
   tauri_plugin::Builder::new(COMMANDS)
