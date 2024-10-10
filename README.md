@@ -22,3 +22,8 @@
 ## Others
 - when building rust compiler is able to pinpoint rust code error but isn't very helpful when android code related error
 - If any android compiler error occur, mostly due some code issue within `plugin-folder/android/src/main/java` 
+- Logs
+  - Android - log.d() in logcat in android studio
+  - Rust - println!() in terminal server
+  - Web - console.log() in console inspector
+  - Web in Mobile - chrome://inspect  

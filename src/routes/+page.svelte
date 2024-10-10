@@ -90,7 +90,10 @@
   async function testPing() {
     try {
       const pingResult = await ping("Hello, Tauri!");
-      console.log("Ping result: web to rust to android, the back to rust to web", pingResult);
+      console.log(
+        "Ping result: web to rust to android, the back to rust to web",
+        pingResult
+      );
     } catch (error) {
       console.error("Error testing ping:", error);
     }
