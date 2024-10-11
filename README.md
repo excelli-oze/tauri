@@ -27,3 +27,6 @@
   - Rust - println!() in terminal server
   - Web - console.log() in console inspector
   - Web in Mobile - chrome://inspect  
+
+
+- WIP `a9e053e` & `948548f` commits unsuccessfull senddatatoandroid(dataobject) method
