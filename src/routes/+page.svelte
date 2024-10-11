@@ -89,9 +89,9 @@
 
   async function testPing() {
     try {
-      const pingResult = await ping("Hello, Tauri!");
+      const pingResult = await ping("this text is added in web!");
       console.log(
-        "Ping result: web to rust to android, the back to rust to web",
+        "Ping result: web to rust to android, then back to rust to web",
         pingResult
       );
     } catch (error) {
@@ -102,7 +102,7 @@
   // Function to send data to Android
   async function sendData() {
     try {
-      const sendResult = await sendDataToAndroid("Hello from Web to Android");
+      const sendResult = await sendDataToAndroid({message:"sent from web", number: 45});
       console.log("Send result:", sendResult);
     } catch (error) {
       console.error("Error sending data to Android:", error);

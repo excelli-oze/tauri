@@ -20,9 +20,18 @@ impl<R: Runtime> Datapass<R> {
         })
     }
 
-    pub fn send_data_to_android(&self, _text: String) -> crate::Result<String> {
-        // Indicate that desktop is not supported
-        Ok("Desktop is not supported. Please use mobile.".to_string())
+    pub fn send_data_to_android(
+        &self,
+        payload: SendDataRequest,
+    ) -> crate::Result<SendDataResponse> {
+        let message = text.message.clone();
+        let number = text.number;
+
+        let response_message = format!("Received message: '{}' with number: {}", message, number);
+
+        Ok(SendDataResponse {
+            value: Some(response_message),
+        })
     }
 
     pub fn get_data_from_android(&self) -> crate::Result<GetDataResponse> {

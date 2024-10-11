@@ -13,10 +13,11 @@ pub(crate) async fn ping<R: Runtime>(
 
 #[command]
 pub(crate) async fn send_data_to_android<R: Runtime>(
-    app_handle: tauri::AppHandle<R>,
-    text: String,
-) -> Result<String> {
-    app_handle.datapass().send_data_to_android(text)
+    app: AppHandle<R>,
+    text: SendDataRequest,
+) -> Result<SendDataResponse> {
+    println!("commands.rs Rust received: {:?}", text);
+    app.datapass().send_data_to_android(text)
 }
 
 #[command]

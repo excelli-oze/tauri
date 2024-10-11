@@ -14,6 +14,17 @@ class PingArgs {
     var value: String? = null
 }
 
+@InvokeArg
+class SendDataRequest {
+    var message: String? = null
+    var number: Int? = null
+
+    override fun toString(): String {
+        return "SendDataRequest(message=$message, number=$number)"
+    }
+}
+
+
 @TauriPlugin
 class ExamplePlugin(private val activity: Activity) : Plugin(activity) {
     private val implementation = Example()
@@ -21,6 +32,8 @@ class ExamplePlugin(private val activity: Activity) : Plugin(activity) {
     @Command
     fun ping(invoke: Invoke) {
         val args = invoke.parseArgs(PingArgs::class.java)
+        val message = args.value ?: "No message received"
+        Log.d("ExamplePlugin", "ping message: $message")
 
         val ret = JSObject()
         ret.put("value", implementation.pong(args.value ?: "default value :("))
@@ -29,13 +42,11 @@ class ExamplePlugin(private val activity: Activity) : Plugin(activity) {
 
     @Command
     fun sendDataToAndroid(invoke: Invoke) {
-        val args = invoke.parseArgs(PingArgs::class.java)
-        val message = args.value ?: "No message received"
-
-        Log.d("ExamplePlugin", "Received message from JavaScript: $message")
+        val args = invoke.parseArgs(SendDataRequest::class.java) 
+        Log.d("ExamplePlugin", "Received data from JavaScript: $args") 
 
         val ret = JSObject()
-        ret.put("message", "Message received successfully")
+        ret.put("value", "Message received successfully")
         invoke.resolve(ret)
     }
 
