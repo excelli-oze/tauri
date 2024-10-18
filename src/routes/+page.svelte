@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import { invoke } from "@tauri-apps/api/core";
 
   let name = "";
@@ -102,7 +103,10 @@
   // Function to send data to Android
   async function sendData() {
     try {
-      const sendResult = await sendDataToAndroid({message:"sent from web", number: 45});
+      const sendResult = await sendDataToAndroid({
+        message: "sent from web",
+        number: 45,
+      });
       console.log("Send result:", sendResult);
     } catch (error) {
       console.error("Error sending data to Android:", error);
@@ -118,38 +122,95 @@
       console.error("Error getting data from Android:", error);
     }
   }
+  let product = null;
+
+  onMount(async () => {
+    try {
+      const response = await fetch("https://fakestoreapi.com/products/1");
+      product = await response.json();
+      console.log(product);
+    } catch (error) {
+      console.error("Error fetching product:", error);
+    }
+  });
 </script>
 
 <div class="container">
-  <h1>Welcome to Tauri!</h1>
+  <header>
+    <h1>Store 1</h1>
+  </header>
 
-  <button on:click={click}>Check OS</button>
-  <button on:click={clickBarcode}>Scan Barcode</button>
-  <button on:click={clickLocation}>Get Location</button>
-  <button on:click={clickNotification}>Send Notification</button>
+  <main>
+    <section class="product">
+      {#if product}
+        <h2>{product.title}</h2>
+        <img src={product.image} alt={product.title} />
+        <p class="price">Price: ${product.price}</p>
+        <p class="description">{product.description}</p>
+        <p class="category">Category: {product.category}</p>
+        <p class="rating">
+          Rating: {product.rating.rate} ({product.rating.count} reviews)
+        </p>
+      {:else}
+        <p>Loading product...</p>
+      {/if}
+    </section>
 
-  <button on:click={testPing}>Ping Data</button>
-  <button on:click={getData}>Get Data to android</button>
-  <button on:click={sendData}>Send Data to android</button>
+    <section class="actions">
+      <h2>App Actions</h2>
+      <button on:click={click}>Check OS</button>
+      <button on:click={clickBarcode}>Scan Barcode</button>
+      <button on:click={clickLocation}>Get Location</button>
+      <button on:click={clickNotification}>Send Notification</button>
+      <button on:click={testPing}>Ping Data</button>
+      <button on:click={getData}>Get Data from Android</button>
+      <button on:click={sendData}>Send Data to Android</button>
+    </section>
 
-  <form class="row" on:submit|preventDefault={greet}>
-    <input id="greet-input" placeholder="Enter a name..." bind:value={name} />
-    <button type="submit">Greet</button>
-  </form>
-
-  <p>{greetMsg}</p>
+    <section class="greet">
+      <h2>Greet Someone</h2>
+      <form class="row" on:submit|preventDefault={greet}>
+        <input
+          id="greet-input"
+          placeholder="Enter a name..."
+          bind:value={name}
+        />
+        <button type="submit">Greet</button>
+      </form>
+      <p>{greetMsg}</p>
+    </section>
+  </main>
 </div>
 
 <style>
   .container {
-    max-width: 600px;
+    background-color: #77b9ff;
+    max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     font-family: Arial, sans-serif;
   }
 
-  h1 {
+  header {
     text-align: center;
+    margin-bottom: 20px;
+  }
+
+  main {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    main {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .product img {
+    max-width: 100%;
+    height: auto;
   }
 
   button {
@@ -178,8 +239,17 @@
     border-radius: 5px;
   }
 
-  p {
-    text-align: center;
-    font-size: 18px;
+  .price {
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+
+  .description {
+    margin-top: 10px;
+  }
+
+  .category,
+  .rating {
+    font-style: italic;
   }
 </style>

@@ -24,8 +24,8 @@ impl<R: Runtime> Datapass<R> {
         &self,
         payload: SendDataRequest,
     ) -> crate::Result<SendDataResponse> {
-        let message = text.message.clone();
-        let number = text.number;
+        let message = payload.message.clone();
+        let number = payload.number;
 
         let response_message = format!("Received message: '{}' with number: {}", message, number);
 
