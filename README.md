@@ -19,6 +19,10 @@
 - Update `COMMANDS` in build.rs, which will update the permissions, which should get auto generated in `custom-plugin/permissions` folder. Now update in `src-tauri/capabilites`
 - Add android implementation in `plugin-folder/android/src/main/java`
 
+## Errors
+- `the request url "/some/paths" is outside of Vite serving allow list
+    - add the "/some/paths" to `server.fs.allow`
+ 
 ## Others
 - when building rust compiler is able to pinpoint rust code error but isn't very helpful when android code related error
 - If any android compiler error occur, mostly due some code issue within `plugin-folder/android/src/main/java` 
