@@ -15,16 +15,19 @@
             </builds>
           </compositeBuild>
         </compositeConfiguration>
-        <option name="testRunner" value="CHOOSE_PER_TEST" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
         <option name="modules">
           <set>
             <option value="$USER_HOME$/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tauri-2.0.1/mobile/android" />
+            <option value="$USER_HOME$/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tauri-plugin-barcode-scanner-2.0.1/android" />
+            <option value="$USER_HOME$/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tauri-plugin-geolocation-2.0.1/android" />
+            <option value="$USER_HOME$/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tauri-plugin-notification-2.0.1/android" />
             <option value="$USER_HOME$/.cargo/registry/src/index.crates.io-6f17d22bba15001f/tauri-plugin-shell-2.0.1/android" />
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/buildSrc" />
+            <option value="$PROJECT_DIR$/../../../tauri-plugin-datapass/android" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

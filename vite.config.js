@@ -30,8 +30,8 @@ export default defineConfig(async () => ({
     },
     fs: {
       allow: [
-        "/home/zero/Code/tauri 07102024/tauri-app",
-        "/home/zero/Code/tauri 07102024/tauri-app/tauri-plugin-datapass/dist-js",
+        "/Users/Kedar/Documents/taurinew/tauri",
+        "/Users/Kedar/Documents/taurinew/tauri/tauri-plugin-datapass/dist-js",
       ],
     },
   },
